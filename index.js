@@ -22,11 +22,6 @@ import { tempUsers, tempPosts } from './tempData/index.js';
 dotenv.config();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-// 配置CORS以允许特定域名的请求
-const corsOptions = {
-    origin: 'https://mern-social-media-frontend-murex.vercel.app/',
-    optionsSuccessStatus: 200, // 一些浏览器需要此选项
-};
 const app = express();
 app.use(express.json());
 app.use(helmet());
@@ -34,7 +29,7 @@ app.use(helmet.crossOriginResourcePolicy({ policy: 'cross-origin' }));
 app.use(morgan('common'));
 app.use(bodyParser.json({ limit: '30mb', extended: true }));
 app.use(bodyParser.urlencoded({ limit: '30mb', extended: true }));
-app.use(cors(corsOptions));
+app.use(cors());
 app.use('/assets', express.static(path.join(__dirname, 'public/assets')));
 
 /* FILE STORAGE */
