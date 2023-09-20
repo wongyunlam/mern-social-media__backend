@@ -24,7 +24,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 // 配置CORS以允许特定域名的请求
 const corsOptions = {
-    origin: 'https://mern-social-media-frontend-murex.vercel.app',
+    origin: 'https://mern-social-media-frontend-murex.vercel.app/',
     optionsSuccessStatus: 200, // 一些浏览器需要此选项
 };
 const app = express();
